@@ -6,7 +6,6 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
 from sqlalchemy import MetaData
 import secrets
 from dotenv import load_dotenv
@@ -14,19 +13,14 @@ load_dotenv()
 
 # Local imports
 
+
+# deployed version uncomment below code, local version comment out below code
 app = Flask(
     __name__,
     static_url_path='',
     static_folder='../client/dist',
     template_folder='../client/dist'
 )
-# deployed version uncomment below code, local version comment out below code
-# app = Flask(
-#     __name__,
-#     static_url_path='',
-#     static_folder='../client/dist',
-#     template_folder='../client/dist'
-# )
 
 # Instantiate app, set attributes
 
@@ -35,8 +29,9 @@ app = Flask(
 
 # Instantiate app, set attributes
 # app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://example_postgresql_kwwv_user:aZRpkooOB2XvCeVuPqZCYFQrs3SFGrUF@dpg-clnl5uhll56s73fk34v0-a.oregon-postgres.render.com/example_postgresql_kwwv"
+
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://puppapers_db_user:OVezbxSUAe2ypoo2MtK8u2qrx0o9CJ0k@dpg-clqf922e9h4c73am0n6g-a.oregon-postgres.render.com/puppapers_db"
+# os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 app.secret_key = secrets.token_hex(16)
@@ -54,7 +49,7 @@ metadata = MetaData(naming_convention={
 db = SQLAlchemy(metadata=metadata)
 migrate = Migrate(app, db)
 db.init_app(app)
-# print(db.engine.url) 
+
 # Instantiate REST API
 api = Api(app)
 
