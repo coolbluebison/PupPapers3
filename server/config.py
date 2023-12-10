@@ -15,12 +15,12 @@ load_dotenv()
 
 
 # deployed version uncomment below code, local version comment out below code
-app = Flask(
-    __name__,
-    static_url_path='',
-    static_folder='../client/dist',
-    template_folder='../client/dist'
-)
+# app = Flask(
+#     __name__,
+#     static_url_path='',
+#     static_folder='../client/dist',
+#     template_folder='../client/dist'
+# )
 
 # Instantiate app, set attributes
 
@@ -28,7 +28,7 @@ app = Flask(
 # app = Flask(__name__)
 
 # Instantiate app, set attributes
-# app = Flask(__name__)
+app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://puppapers_db_user:OVezbxSUAe2ypoo2MtK8u2qrx0o9CJ0k@dpg-clqf922e9h4c73am0n6g-a.oregon-postgres.render.com/puppapers_db"
 # os.environ.get('DATABASE_URI')
@@ -56,4 +56,4 @@ api = Api(app)
 # Instantiate CORS
 CORS(app)
 
-bcrypt = Bcrypt(app)
+# bcrypt = Bcrypt(app)
