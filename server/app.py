@@ -15,19 +15,19 @@ import generator
 
 
 
-# @app.route('/')
-# def index():
-#     return '<h1>Phase 4 Project Server</h1>'
+@app.route('/')
+def index():
+    return '<h1>Phase 4 Project Server</h1>'
 
 # Views go here! use either route!
 # @app.errorhandler(404)
 # def not_found(e):
 #     return render_template("index.html")
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
-    return render_template("index.html")
+# @app.route('/', defaults={'path': ''})
+# @app.route('/<path:path>')
+# def catch_all(path):
+#     return render_template("index.html")
 
 
 
@@ -84,5 +84,5 @@ api.add_resource(SendCert, '/cert')
 
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=5555, debug=True)
 

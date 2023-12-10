@@ -12,7 +12,7 @@ function DownloadPage( { birthdate, name, breed, gender, parent } ) {
     function handleClick(e) {
         e.preventDefault()
 
-        fetch ('http://127.0.0.1:5000/infopackage', {
+        fetch ('http://127.0.0.1:5555/infopackage', {
             method: 'POST',
             headers: {'content-type':'application/json'},
             body: JSON.stringify( {
