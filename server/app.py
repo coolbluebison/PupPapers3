@@ -15,14 +15,14 @@ import generator
 
 
 
-@app.route('/')
-def index():
-    return '<h1>Phase 4 Project Server</h1>'
+# @app.route('/')
+# def index():
+#     return '<h1>Phase 4 Project Server</h1>'
 
 # Views go here! use either route!
-# @app.errorhandler(404)
-# def not_found(e):
-#     return render_template("index.html")
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("index.html")
 
 # @app.route('/', defaults={'path': ''})
 # @app.route('/<path:path>')
