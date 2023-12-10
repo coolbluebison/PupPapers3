@@ -7,7 +7,7 @@ function DisplayPage() {
     useEffect(() => {
         // Introduce a delay if needed
         const timer = setTimeout(() => {
-            fetch('http://127.0.0.1:5555/cert')
+            fetch('https://puppapers.onrender.com/cert')
                 .then(response => response.blob())
                 .then(blob => {
                     const url = window.URL.createObjectURL(blob);
