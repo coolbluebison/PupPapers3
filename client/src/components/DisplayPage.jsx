@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function DisplayPage() {
     const [pdfUrl, setPdfUrl] = useState(null);
-    const [isLoading, setIsLoading] = useState(true); // tracking loading status
+    const [isLoading, setIsLoading] = useState(true); 
 
     useEffect(() => {
         // Introduce a delay if needed
@@ -16,7 +16,7 @@ function DisplayPage() {
                 })
                 .catch(error => {
                     console.error('Error fetching PDF:', error);
-                    setIsLoading(false); // Update loading status in case of an error
+                    setIsLoading(false); 
                 });
         }, 9000); 
 
@@ -26,7 +26,7 @@ function DisplayPage() {
         <>
             <h2>Now we have generated the certificate, you can download it!</h2>
             {isLoading ? (
-                <p>Loading...</p> // Display a loading message while fetching
+                <p>Loading...</p> 
             ) : pdfUrl ? (
                 <>
                     <iframe src={pdfUrl} width="100%" height="600px" title="Certificate"></iframe>
@@ -34,7 +34,7 @@ function DisplayPage() {
                     <a href={pdfUrl} download="certificate.pdf">Download Certificate</a>
                 </>
             ) : (
-                <p>Failed to load the certificate.</p> // In case pdfUrl is null and not loading
+                <p>Failed to load the certificate.</p> 
             )}
         </>
     );
